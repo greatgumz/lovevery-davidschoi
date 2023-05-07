@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { headerLinks } from '@/utils/constants';
 import Image from 'next/image';

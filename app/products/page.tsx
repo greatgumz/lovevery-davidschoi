@@ -46,7 +46,7 @@ const ProductsGridStyles = styled.section`
   }
 `;
 
-const ProductStyles = styled(Link)<{ isRecommended?: boolean }>`
+const ProductStyles = styled.div<{ isRecommended?: boolean }>`
   padding: 5px;
   position: relative;
 
@@ -112,11 +112,13 @@ export default function Products() {
         {playKits.map((playKit) => {
           const isRecommended = recommended === playKit.slug;
           return (
-            <ProductStyles key={playKit.slug} href={`/products/${playKit.slug}`} isRecommended={isRecommended}>
-              {isRecommended && <PillStyles>Recommended</PillStyles>}
-              <Image src={playKit.productImage} alt={playKit.name} width={600} height={450} />
-              <h3>{playKit.name}</h3>
-              <p>{playKit.age}</p>
+            <ProductStyles key={playKit.slug} isRecommended={isRecommended}>
+              <Link href={`/products/${playKit.slug}`}>
+                {isRecommended && <PillStyles>Recommended</PillStyles>}
+                <Image src={playKit.productImage} alt={playKit.name} width={600} height={450} />
+                <h3>{playKit.name}</h3>
+                <p>{playKit.age}</p>
+              </Link>
             </ProductStyles>
           );
         })}

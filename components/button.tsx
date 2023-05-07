@@ -1,3 +1,5 @@
+'use client';
+
 import styled from 'styled-components';
 import { brownPro } from '@/app/layout';
 import Link from 'next/link';

@@ -6,6 +6,7 @@ import localFont from 'next/font/local';
 import styled from 'styled-components';
 import Footer from '@/components/footer';
 import { UserContextProvider } from '@/context/UserContext';
+import StyledComponentsRegistry from '@/utils/registry';
 
 export const brownPro = localFont({
   src: [
@@ -14,7 +15,7 @@ export const brownPro = localFont({
   ],
 });
 
-const Container = styled.main`
+const ContainerStyles = styled.main`
   min-width: 0;
   margin: var(--header-height) auto 0;
   max-width: var(--container-width);
@@ -27,14 +28,16 @@ const Container = styled.main`
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={brownPro.className}>
-        <UserContextProvider>
-          <Header />
-          <Container>{children}</Container>
-          <Footer />
-        </UserContextProvider>
-      </body>
-    </html>
+    <StyledComponentsRegistry>
+      <html lang="en">
+        <body className={brownPro.className}>
+          <UserContextProvider>
+            <Header />
+            <ContainerStyles>{children}</ContainerStyles>
+            <Footer />
+          </UserContextProvider>
+        </body>
+      </html>
+    </StyledComponentsRegistry>
   );
 }

@@ -1,21 +1,25 @@
+'use client';
+
 import Image from 'next/image';
 import { useState, SetStateAction } from 'react';
 
 import styled from 'styled-components';
 
-const CarouselContainer = styled.div`
+const CarouselContainerStyles = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-const LargeImage = styled(Image)`
-  width: 100%;
-  height: auto;
-  object-fit: contain;
+const ActiveImageStyles = styled.div`
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
 `;
 
-const ThumbnailContainer = styled.div`
+const ThumbnailContainerStyles = styled.div`
   display: grid;
   margin: 20px 0;
   gap: 10px;
@@ -31,22 +35,24 @@ const ThumbnailContainer = styled.div`
   }
 `;
 
-const ThumbnailImage = styled(Image)`
-  width: 100%;
-  height: 80px;
-  object-fit: cover;
-  cursor: pointer;
-  border: 3px solid transparent;
-  border-radius: 3px;
+const ThumbnailStyles = styled.div`
+  img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 3px solid transparent;
+    border-radius: 3px;
 
-  &.active {
-    border-color: var(--border-color);
-  }
+    &.active {
+      border-color: var(--border-color);
+    }
 
-  @media (max-width: 600px) {
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
+    @media (max-width: 600px) {
+      border-radius: 50%;
+      height: 40px;
+      width: 40px;
+    }
   }
 `;
 
@@ -74,27 +80,30 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
   };
 
   return (
-    <CarouselContainer>
-      <LargeImage src={images[currentIndex]} height={452} width={668} alt={`Image ${currentIndex}`} />
-      <ThumbnailContainer>
+    <CarouselContainerStyles>
+      <ActiveImageStyles>
+        <Image src={images[currentIndex]} height={452} width={668} alt={`Image ${currentIndex}`} />
+      </ActiveImageStyles>
+      <ThumbnailContainerStyles>
         <ButtonStyles onClick={() => setCurrentIndex(currentIndex === 0 ? images.length - 1 : currentIndex - 1)}>
           <Image src="/icons/icon-carousel-left.svg" height={32} width={32} alt="Previous" />
         </ButtonStyles>
         {images.map((image, index) => (
-          <ThumbnailImage
-            key={index}
-            src={image}
-            alt={`Carousel image ${index + 1}`}
-            className={currentIndex === index ? 'active' : ''}
-            height={452}
-            width={668}
-            onClick={() => handleThumbnailClick(index)}
-          />
+          <ThumbnailStyles key={index}>
+            <Image
+              src={image}
+              alt={`Carousel image ${index + 1}`}
+              className={currentIndex === index ? 'active' : ''}
+              height={452}
+              width={668}
+              onClick={() => handleThumbnailClick(index)}
+            />
+          </ThumbnailStyles>
         ))}
         <ButtonStyles onClick={() => setCurrentIndex(currentIndex === images.length - 1 ? 0 : currentIndex + 1)}>
           <Image src="/icons/icon-carousel-right.svg" height={32} width={32} alt="Next" />
         </ButtonStyles>
-      </ThumbnailContainer>
-    </CarouselContainer>
+      </ThumbnailContainerStyles>
+    </CarouselContainerStyles>
   );
 }

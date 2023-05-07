@@ -1,3 +1,5 @@
+'use client';
+
 import { footerLinks } from '@/utils/constants';
 import Link from 'next/link';
 import styled from 'styled-components';
