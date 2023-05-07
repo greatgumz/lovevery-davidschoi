@@ -1,5 +1,7 @@
 > This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) to complete the Lovevery Senior Software Engineer take home assignment.
 
+
+
 ## David Choi's Solution
 
 - I used the image above as the design template and also drew inspiration from [lovevery.com](https://lovevery.com).
@@ -39,3 +41,7 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## View deployed production application
+
+1. Go to [https://lovevery-davidschoi.vercel.app/](https://lovevery-davidschoi.vercel.app/)
