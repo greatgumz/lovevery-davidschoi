@@ -1,10 +1,10 @@
 'use client';
 
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { brownPro } from '@/app/layout';
 import Link from 'next/link';
 
-const commonStyles = `
+const commonStyles = css`
   background-color: var(--colors-primary);
   color: #fff;
   border: 0;

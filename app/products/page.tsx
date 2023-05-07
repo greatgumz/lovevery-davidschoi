@@ -46,9 +46,12 @@ const ProductsGridStyles = styled.section`
   }
 `;
 
-const ProductStyles = styled.div<{ isRecommended?: boolean }>`
+const ProductStyles = styled.div<{ $isRecommended?: boolean }>`
   padding: 5px;
   position: relative;
+  border-radius: 10px;
+  border: 4px solid transparent;
+  border-color: ${({ $isRecommended }) => ($isRecommended ? 'var(--border-color)' : 'transparent')};
 
   &:hover {
     color: var(--colors-text);
@@ -67,14 +70,6 @@ const ProductStyles = styled.div<{ isRecommended?: boolean }>`
     font-size: 20px;
     line-height: 1.5;
   }
-
-  ${(props) =>
-    props.isRecommended
-      ? `
-    border: 4px solid var(--border-color);
-    border-radius: 10px;
-  `
-      : null}
 `;
 
 const PillStyles = styled.div`
@@ -112,7 +107,7 @@ export default function Products() {
         {playKits.map((playKit) => {
           const isRecommended = recommended === playKit.slug;
           return (
-            <ProductStyles key={playKit.slug} isRecommended={isRecommended}>
+            <ProductStyles key={playKit.slug} $isRecommended={isRecommended}>
               <Link href={`/products/${playKit.slug}`}>
                 {isRecommended && <PillStyles>Recommended</PillStyles>}
                 <Image src={playKit.productImage} alt={playKit.name} width={600} height={450} />

@@ -116,7 +116,7 @@ export default function PlayKit({ params }: { params: { slug: string } }) {
             </ul>
             <p>{description.footer}</p>
           </div>
-          <Button href="/products" width={350}>
+          <Button href="/products" width={300}>
             Get Started with {user.name}
           </Button>
         </div>
