@@ -27,7 +27,7 @@ const ProductsStyles = styled.div`
 
 const ProductsGridStyles = styled.section`
   display: grid;
-  margin: 80px;
+  margin: 60px 0 100px;
   gap: 40px 30px;
   grid-template-columns: repeat(3, 1fr);
 

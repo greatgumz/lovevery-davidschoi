@@ -19,7 +19,7 @@ const ContainerStyles = styled.main`
   min-width: 0;
   margin: var(--header-height) auto 0;
   max-width: var(--container-width);
-  padding: 0 40px;
+  padding: 0 20px;
 
   @media (max-width: 960px) {
     margin-top: var(--header-height-mobile);

@@ -1,7 +1,5 @@
 > This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) to complete the Lovevery Senior Software Engineer take home assignment.
 
-
-
 ## David Choi's Solution
 
 - I used the image above as the design template and also drew inspiration from [lovevery.com](https://lovevery.com).
@@ -20,7 +18,9 @@
 
 ### Styling
 - CSS in JS: I used `styled-components` to write CSS for my React components, but this was tedious because the Next.js 13 "App Router" documentation doesn't provide full support so I'm using a combination of CSS variables, CSS modules, and `styled-components` in the interest of time. Typically I would have used the suggested `ThemeProvider` and `createGlobalStyle` to write my CSS.
-- Responsiveness: I used a desktop-first approach and let each component/page drive the breakpoints for responsiveness.
+- Responsiveness: I used a desktop-first approach and let each component/page drive the breakpoints for responsiveness. For example, I used a sticky footer for the CTA on the primary product page to create an enhanced mobile experience and created a dynamic width for mobile and tablet viewports:
+
+![Mobile Flow](./docs/mockup.png)
 
 ### Testing
 - I would use React Testing Library for unit testing and Cypress for end-to-end testing.

@@ -85,6 +85,22 @@ const ProductWrapperStyles = styled.div`
   }
 `;
 
+const MobileButtonWrapperStyles = styled.div`
+  @media (max-width: 480px) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    box-shadow: rgba(0, 0, 0, 0.15) 0 0 1px 0, rgba(0, 0, 0, 0.25) 0 -2px 3px 0;
+  }
+`;
+
 export default function PlayKit({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const selectedPlayKit = playKits.find((playKit) => playKit.slug === slug);
@@ -116,9 +132,11 @@ export default function PlayKit({ params }: { params: { slug: string } }) {
             </ul>
             <p>{description.footer}</p>
           </div>
-          <Button href="/products" width={300}>
-            Get Started with {user.name}
-          </Button>
+          <MobileButtonWrapperStyles>
+            <Button href="/products" width={300}>
+              Get Started with {user.name}
+            </Button>
+          </MobileButtonWrapperStyles>
         </div>
       </ProductWrapperStyles>
     </PlayKitStyles>

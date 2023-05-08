@@ -12,7 +12,7 @@ const WrapperStyles = styled.div`
   min-height: 60vh;
 
   .header {
-    padding: 0 40px;
+    padding: 0 20px;
   }
 
   h1 {
@@ -36,7 +36,7 @@ const WrapperStyles = styled.div`
 const FormBodyStyles = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 24px 40px;
+  padding: 24px 20px;
 
   @media (max-width: 960px) {
     flex-direction: column;
@@ -77,12 +77,13 @@ const InputStyles = styled.input`
 `;
 
 const FormFooterStyles = styled.div`
-  padding: 24px 40px;
+  padding: 24px 20px;
   display: flex;
   justify-content: space-between;
 
   .contact {
     max-width: 562px;
+    margin: 0 auto;
   }
 
   button {
@@ -97,11 +98,18 @@ const FormFooterStyles = styled.div`
       font-size: 14px;
       line-height: 20px;
       margin-top: 10px;
+      text-align: center;
     }
 
     button {
       margin: 0 auto;
       max-width: 300px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    button {
+      width: 100%;
     }
   }
 `;

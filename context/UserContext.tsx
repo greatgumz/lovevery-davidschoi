@@ -1,6 +1,3 @@
-'use client';
-
-import { get } from 'http';
 import React, { createContext, useReducer } from 'react';
 
 type UserAction = { type: 'SET_NAME'; payload: string } | { type: 'SET_BIRTHDAY'; payload: string };
